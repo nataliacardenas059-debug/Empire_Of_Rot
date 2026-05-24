@@ -1,7 +1,2 @@
-nata_09 - -3.5
-nata8907 - 3.5
-nata - 66.0
-nata908 - 0.5
-nata908 - 0.5
-Alonso - 104.0
-Daniel - 1.5
+Daniel - 36.0
+Naty_09 - 34.5

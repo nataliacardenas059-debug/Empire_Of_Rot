@@ -38,15 +38,20 @@ public class MainMenuController {
     }
 
     public void mostrarTop(){
+        txtTop.clear();
         try{
             BufferedReader reader = new BufferedReader(new FileReader("Top5.txt"));
             String linea;
-            while((linea = reader.readLine()) != null){
-                txtTop.appendText(linea + "\n");
-            }
+            int posicion = 1;
 
-        }catch(Exception e){
-            txtTop.setText("No hay puntajes");
+            while((linea = reader.readLine()) != null){
+                txtTop.appendText(posicion + ". " + linea + "\n");
+                posicion++;
+            }
+            reader.close();
+
+        }catch( IOException e){
+            txtTop.setText("No existe top.");
         }
     }
 }

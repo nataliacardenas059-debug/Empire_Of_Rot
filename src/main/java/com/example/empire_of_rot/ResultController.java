@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class ResultController {
     @FXML
@@ -44,14 +46,39 @@ public class ResultController {
     }
 
     public void guardarTop(Combatiente jugador){
+        ArrayList<String> Puntajes = new ArrayList<>();
         try{
             File archivo = new File("Top5.txt");
             if(!archivo.exists()){
                 archivo.createNewFile();
             }
-            BufferedWriter writer = new BufferedWriter(new FileWriter(archivo,true));
-            writer.write(jugador.getNombre() + " - " + jugador.getPuntos());
-            writer.newLine();
+            BufferedReader reader = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while((linea = reader.readLine())!= null){
+                if(!linea.trim().isEmpty()){
+                    Puntajes.add(linea);
+                }
+            }
+            reader.close();
+
+            Puntajes.add(jugador.getNombre() + " - " + jugador.getPuntos());
+            Collections.sort(Puntajes, (a,b) ->{
+                double puntosA = Double.parseDouble(a.split("-")[1].trim());
+                double puntosB = Double.parseDouble(b.split("-")[1].trim());
+                return Double.compare(puntosB, puntosA);
+            });
+
+            if(Puntajes.size() > 5){
+                Puntajes = new ArrayList<>(Puntajes.subList(0,5));
+            }
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(archivo));
+            for(String p : Puntajes){
+                writer.write(p);
+                writer.newLine();
+            }
+
             writer.close();
 
         }catch(IOException e){
@@ -60,12 +87,15 @@ public class ResultController {
     }
 
     public void mostrarTop(){
+        txTop.clear();
         try{
             BufferedReader reader = new BufferedReader(new FileReader("Top5.txt"));
             String linea;
+            int posicion = 1;
 
             while((linea = reader.readLine()) != null){
-                txTop.appendText(linea + "\n");
+                txTop.appendText(posicion + ". " + linea + "\n");
+                posicion++;
             }
             reader.close();
 
@@ -73,6 +103,7 @@ public class ResultController {
             txTop.setText("No existe top.");
         }
     }
+
     @FXML
     public void volverAJugar(ActionEvent event)throws Exception{
             Parent root = FXMLLoader.load(getClass().getResource("main-menu.fxml"));
