@@ -10,14 +10,14 @@ public abstract class Enemigo extends Combatiente{
         if(probabilidad <= acertividad){
             jugador.dañoCausado(dano);
             jugador.puntos -= 0.5;
-            return nombre + " atacó causando " + dano + " de daño";
+            return nombre + " atacó causando " + dano + " de daño.\n";
         }else {
-            return nombre + " fallo el ataque";
+            return nombre + " fallo el ataque.\n";
         }
     }
     
     @Override
     public String toString(){
-        return nombre + " | Vida: " + vida + "\nDano: " + dano;
+        return nombre + " | Vida: " + vida + "\nDaño: " + dano;
     }
 }

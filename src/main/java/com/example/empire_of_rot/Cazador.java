@@ -18,8 +18,8 @@ public class Cazador extends Combatiente {
     @Override
     public String habilidadEspecial(Combatiente enemigo){
         if(!arma.usarMunicion(2)){
-           return "No hay suficientes cartuchos";
+           return "sin munición: No hay suficientes cartuchos.\n";
         }
-        return "Doble disparo" + atacarEspecial(enemigo, 10) + "\n" + atacarEspecial(enemigo, 10);
+        return "Doble disparo " + atacarEspecial(enemigo, 10) + "\n" + atacarEspecial(enemigo, 10);
     }
 }

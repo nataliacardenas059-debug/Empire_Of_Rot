@@ -27,7 +27,7 @@ public class Bestia extends Enemigo {
             enemigo.dañoCausado(danoEspecial);
             enemigo.puntos -=0.5;
 
-            return "GOLPEA BRUTALMENTE\n" + nombre + "destrutó brutalmente al jugador.\n" + "Daño Causado: " + danoEspecial;
+            return "\nGOLPEA BRUTALMENTE\n" + nombre + " destruyó brutalmente al jugador.\n" + "Daño Causado: " + danoEspecial;
         }else{
             return nombre + " Intento golpe brutal, pero falló";
         }

@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 public class HelloApplication extends Application {
     @Override
@@ -13,6 +14,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         stage.setTitle("Empire Of Rot");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("incono.png")));
         stage.setScene(scene);
         stage.show();
     }

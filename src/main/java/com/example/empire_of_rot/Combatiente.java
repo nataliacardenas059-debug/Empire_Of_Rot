@@ -32,9 +32,9 @@ public abstract class Combatiente implements Atacable{
     //Metodo para realizar un ataque normal, verificando la municion, acertividad y suma de puntos
     public String atacar(Combatiente enemigo){
         if(!arma.disparar()){
-            return "Sin balas.";
-
+            return "sin munición";
         }
+
          double probabilidad = random.nextDouble();
          if(probabilidad <= acertividad){
              int danoTotal = dano + arma.getDano();
@@ -43,7 +43,7 @@ public abstract class Combatiente implements Atacable{
              return  nombre + " acertó el ataque.\n" + "El dano causado fue: " + danoTotal;
              
          }else{
-             return nombre + " fallo el ataque.";
+             return nombre + "\nfallo el ataque.\n";
          }
         
     }
@@ -56,10 +56,10 @@ public abstract class Combatiente implements Atacable{
             enemigo.dañoCausado(danoTotal);
             puntos += 1;
             
-            return nombre + " realizo ataque especial.\n" + "Dano causado: " + danoTotal;
+            return nombre + " realizo ataque especial.\n" + "\nDano causado: " + danoTotal;
 
         }else{
-            return nombre + " fallo el ataque especial";
+            return nombre + "  fallo el ataque especial\n";
         }
     }
     
@@ -111,7 +111,7 @@ public abstract class Combatiente implements Atacable{
     @Override
     public String toString(){
         return nombre + " | Vida: " + vida +
-                "\nDano: " + dano +
+                "\nDaño: " + dano +
                 "\nPuntos: " + puntos +
                 "\nArma: " + arma ;
     }

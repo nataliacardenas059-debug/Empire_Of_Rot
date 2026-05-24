@@ -20,9 +20,9 @@ public class Soldado extends Combatiente {
     @Override
     public String habilidadEspecial(Combatiente enemigo){
         if(!arma.usarMunicion(3)){
-            return "No hay suficientes balas";
+            return "sin munición: No hay suficientes balas.\n";
 
         }
-        return "Rafaga activada" + atacarEspecial(enemigo, 20);
+        return ".\nRafaga activada.\n" + atacarEspecial(enemigo, 20);
     }
 }

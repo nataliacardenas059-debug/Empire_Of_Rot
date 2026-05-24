@@ -58,24 +58,23 @@ public class ResultController {
     }
 
     public void guardarTop(Combatiente jugador){
-        ArrayList<String> Puntajes = new ArrayList<>();
         try{
-            File archivo = new File("Top5.txt");
-            if(!archivo.exists()){
-                archivo.createNewFile();
-            }
-            BufferedReader reader = new BufferedReader(new FileReader(archivo));
-            String linea;
+            ArrayList<String> Puntajes = new ArrayList<>();
 
-            while((linea = reader.readLine())!= null){
-                if(!linea.trim().isEmpty()){
-                    Puntajes.add(linea);
+            File archivo = new File("Top5.txt");
+
+            if(archivo.exists()){
+                BufferedReader reader = new BufferedReader(new FileReader(archivo));
+                String linea;
+
+                while((linea = reader.readLine())!= null){
+                   Puntajes.add(linea);
                 }
+                reader.close();
             }
-            reader.close();
 
             Puntajes.add(jugador.getNombre() + " - " + jugador.getPuntos());
-            Collections.sort(Puntajes, (a,b) ->{
+            Puntajes.sort((a,b) ->{
                 double puntosA = Double.parseDouble(a.split("-")[1].trim());
                 double puntosB = Double.parseDouble(b.split("-")[1].trim());
                 return Double.compare(puntosB, puntosA);
@@ -85,12 +84,11 @@ public class ResultController {
                 Puntajes = new ArrayList<>(Puntajes.subList(0,5));
             }
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(archivo));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Top5.txt"));
             for(String p : Puntajes){
                 writer.write(p);
                 writer.newLine();
             }
-
             writer.close();
 
         }catch(IOException e){
@@ -112,10 +110,10 @@ public class ResultController {
             reader.close();
 
             lblTop1.setText(i > 0 ? tops[0] : "---");
-            lblTop1.setText(i > 1 ? tops[1] : "---");
-            lblTop1.setText(i > 2 ? tops[2] : "---");
-            lblTop1.setText(i > 3 ? tops[3] : "---");
-            lblTop1.setText(i > 4 ? tops[4] : "---");
+            lblTop2.setText(i > 1 ? tops[1] : "---");
+            lblTop3.setText(i > 2 ? tops[2] : "---");
+            lblTop4.setText(i > 3 ? tops[3] : "---");
+            lblTop5.setText(i > 4 ? tops[4] : "---");
 
         } catch (IOException e) {
             lblTop1.setText("---");

@@ -67,10 +67,10 @@ public class MainMenuController {
             reader.close();
 
             lblTop1.setText(i > 0 ? tops[0] : "---");
-            lblTop1.setText(i > 1 ? tops[1] : "---");
-            lblTop1.setText(i > 2 ? tops[2] : "---");
-            lblTop1.setText(i > 3 ? tops[3] : "---");
-            lblTop1.setText(i > 4 ? tops[4] : "---");
+            lblTop2.setText(i > 1 ? tops[1] : "---");
+            lblTop3.setText(i > 2 ? tops[2] : "---");
+            lblTop4.setText(i > 3 ? tops[3] : "---");
+            lblTop5.setText(i > 4 ? tops[4] : "---");
 
         }catch( IOException e){
             lblTop1.setText("---");

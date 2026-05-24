@@ -27,9 +27,9 @@ public class Zombie extends Enemigo {
             enemigo.dañoCausado(danoEspecial);
             enemigo.puntos -=0.5;
 
-            return "MUERDE BRUTALMENTE\n" + nombre + "mordio al jugador.\n" + "Daño Causado: " + danoEspecial;
+            return "MUERDE BRUTALMENTE\n" + nombre + " mordio al jugador.\n" + "Daño Causado: " + danoEspecial;
         }else{
-            return nombre + " Intento morder, pero falló";
+            return nombre + " Intento morder, pero falló.\n";
         }
     }
     

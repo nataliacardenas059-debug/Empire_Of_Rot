@@ -27,9 +27,9 @@ public class Infectado extends Enemigo {
             enemigo.dañoCausado(danoEspecial);
             enemigo.puntos -=0.5;
 
-            return "ATACA VELOZMENTE\n" + nombre + "Hirió gravemente al jugador.\n" + "Daño Causado: " + danoEspecial;
+            return "ATACA VELOZMENTE\n" + nombre + " Hirió gravemente al jugador.\n" + "Daño Causado: " + danoEspecial;
         }else{
-            return nombre + " Intento atacar rapidamente, pero falló";
+            return nombre + " Intento atacar rapidamente, pero falló.\n";
         }
     }
     

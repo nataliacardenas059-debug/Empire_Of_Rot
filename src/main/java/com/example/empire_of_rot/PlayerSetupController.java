@@ -11,6 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+import javafx.animation.FadeTransition;
+import javafx.util.Duration;
+import java.io.*;
 
 import java.io.IOException;
 
@@ -31,6 +34,30 @@ public class PlayerSetupController {
         comboCombatiente.setItems(FXCollections.observableArrayList("Cazador","Soldado","Arquero"));
     }
 
+    public boolean nombreExiste(String nombre){
+        try{
+            File archivo = new File("Top5.txt");
+            if(!archivo.exists()){
+                return false;
+            }
+            BufferedReader reader = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while((linea = reader.readLine())!= null){
+                String nombregGuardado = linea.split("-")[0].trim();
+
+                if(nombregGuardado.equalsIgnoreCase(nombre)){
+                    reader.close();
+                    return true;
+                }
+            }
+            reader.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     @FXML
     public void iniciarPartida(ActionEvent event) throws Exception {
         String nombre = txtNombre.getText();
@@ -42,6 +69,10 @@ public class PlayerSetupController {
         }
 
         LblError.setText("");
+        if(nombreExiste(nombre)){
+            LblError.setText("Este jugador ya existe. Usa otro");
+            return;
+        }
 
         switch(tipo){
             case "Cazador":
@@ -66,6 +97,10 @@ public class PlayerSetupController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         Scene scene = new Scene(root);
+        FadeTransition fade = new FadeTransition(Duration.seconds(1),root);
+        fade.setFromValue(0);
+        fade.setToValue(1);
+        fade.play();
         stage.setScene(scene);
         stage.show();
     }

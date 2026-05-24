@@ -17,10 +17,10 @@ public class Arquero extends Combatiente {
     @Override
     public String habilidadEspecial(Combatiente enemigo){
         if(!arma.usarMunicion(4)){
-            return "No hay suficientes flechas" ;
+            return "sin munición: No hay suficientes flechas.\n" ;
 
         }
-        return "LLUVIA DE FLECHAS" + atacarEspecial(enemigo, 30) ;
+        return "\nLLUVIA DE FLECHAS " + atacarEspecial(enemigo, 30) ;
 
     }
     

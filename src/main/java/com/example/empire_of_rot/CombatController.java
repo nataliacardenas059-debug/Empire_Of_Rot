@@ -55,6 +55,11 @@ public class CombatController {
         txtCombate.appendText(resultado + "\n");
         actualizarBarras();
         actualizarDatos();
+        if(resultado.toLowerCase().contains("sin munición")){
+            turnoEnemigo();
+            verificarEstado();
+            return;
+        }
         verificarEstado();
     }
 
@@ -64,6 +69,12 @@ public class CombatController {
         txtCombate.appendText(resultado + "\n");
         actualizarBarras();
         actualizarDatos();
+
+        if(resultado.toLowerCase().contains("sin munición")){
+            turnoEnemigo();
+            verificarEstado();
+            return;
+        }
         verificarEstado();
     }
 
@@ -128,14 +139,18 @@ public class CombatController {
 
         if(action == 0){
             resultado = enemigoActual.atacar(jugador);
-            actualizarBarras();
+
         }else{
             resultado = enemigoActual.habilidadEspecial(jugador);
-            actualizarBarras();
         }
 
-        txtCombate.appendText(resultado + "\n");
+        txtCombate.appendText("\n[Turno enemigo]\n" + resultado + "\n");
+        actualizarBarras();
         actualizarDatos();
+
+        if(!jugador.tieneVida()){
+            finalizarPartida(false);
+        }
     }
 
     public void actualizarDatos(){
@@ -157,7 +172,9 @@ public class CombatController {
             indiceEnemigo++;
             if(indiceEnemigo < enemigos.size()){
                 enemigoActual = enemigos.get(indiceEnemigo);
-                txtCombate.appendText("\nHa aparecido un nuevo enemigo!\n" + enemigoActual.getNombre() + "\n");
+                txtCombate.appendText("\nHa aparecido un nuevo enemigo!\n" + "\nTipo: " + enemigoActual.getNombre() + "\n");
+                actualizarDatos();
+                actualizarBarras();
             }else{
                 finalizarPartida(true);
                 return;
@@ -168,8 +185,6 @@ public class CombatController {
             return;
         }
 
-        turnoEnemigo();
-        actualizarDatos();
     }
 
     public void finalizarPartida(boolean victoria){
@@ -189,8 +204,8 @@ public class CombatController {
     }
 
     public void actualizarBarras(){
-        barraVidaJugador.setProgress(jugador.getVida()/150.0);
-        barraVidaEnemigo.setProgress(enemigoActual.getVida()/150.0);
+        barraVidaJugador.setProgress(Math.max(0,jugador.getVida()/150.0));
+        barraVidaEnemigo.setProgress(Math.max(0,enemigoActual.getVida()/150.0));
     }
 
     private String getEmojiJugador(){
@@ -199,11 +214,11 @@ public class CombatController {
         }
 
         if(jugador instanceof Soldado){
-            return "\uD83C\uDFF9";
+            return "\uD83D\uDC82";
         }
 
         if(jugador instanceof Cazador){
-            return "\uD83C\uDFF9";
+            return "\uD83E\uDDDF";
         }
         return "\uD83C\uDFAE";
     }
@@ -218,11 +233,11 @@ public class CombatController {
         }
 
         if(enemigoActual instanceof Mutante){
-            return "\uD83C\uDFF9";
+            return "\uD83E\uDDEC";
         }
 
         if(enemigoActual instanceof Infectado){
-            return "☣\uFE0F";
+            return "☣";
         }
         return "\uD83D\uDC80";
     }

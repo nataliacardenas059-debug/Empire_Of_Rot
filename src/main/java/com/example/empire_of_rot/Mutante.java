@@ -28,9 +28,9 @@ public class Mutante extends Enemigo{
             enemigo.dañoCausado(danoEspecial);
             enemigo.puntos -=0.5;
 
-            return "ESCUPE ACIDO\n" + nombre + "quemo horriblemente al jugador.\n" + "Daño Causado: " + danoEspecial;
+            return "ESCUPE ACIDO\n" + nombre + " quemo horriblemente al jugador.\n" + "Daño Causado: " + danoEspecial;
         }else{
-            return nombre + " Intento escupir acido, pero falló";
+            return nombre + " Intento escupir acido, pero falló.\n";
         }
     }
     
