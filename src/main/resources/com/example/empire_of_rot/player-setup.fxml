@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER"
+      spacing="15"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.empire_of_rot.PlayerSetupController"
+      style="-fx-background-color: #1b1b1b;">
+
+    <Label text="CONFIGURACIÓN DEL PERSONAJE"
+           style="-fx-font-size: 24px;
+                  -fx-text-fill: darkred;
+                  -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tablaTop"
+               prefHeight="150"
+               prefWidth="300">
+        <columns>
+            <TableColumn fx:id="colJugador"
+                         text="Jugador"
+                         prefWidth="150"/>
+
+            <TableColumn fx:id="colPuntaje"
+                         text="Punaje"
+                         prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <TextField fx:id="txtNombre"
+               promptText="Ingrese un nombre para su jugador"
+               maxWidth="250"/>
+
+    <ComboBox fx:id="comboCombatiente"
+              promptText="Seleccione un combatiente"
+              maxWidth="250"/>
+
+    <Label fx:id="LblError"
+           style="-fx-text-fill: red;"/>
+
+    <Button text="INICIAR PARTIDA"
+            onAction="#iniciarPartida"
+            style="-fx-font-size: 16px;
+                    -fx-background-color:darkred;
+                    -fx-text-fill: white;"/>
+</VBox>
+

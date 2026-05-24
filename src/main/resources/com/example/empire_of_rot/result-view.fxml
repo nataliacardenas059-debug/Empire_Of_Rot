@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox  alignment="CENTER"
+       spacing="15"
+       xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="com.example.empire_of_rot.ResultController"
+       style="-fx-background-color: #1b1b1b;">
+
+    <Label text="RESULTADO FINAL"
+           style="-fx-font-size: 28px;
+                  -fx-text-fill: darkred;
+                  -fx-font-weight: bold;"/>
+
+    <Label fx:id="LblResultado"
+           style="-fx-font-size : 22px;
+                  -fx-text-fill: white;"/>
+
+    <Label fx:id="LblJugador"
+           style="-fx-text-fill: white;"/>
+
+    <Label fx:id="LblPuntos"
+           style="-fx-text-fill: gold;"/>
+
+    <Label fx:id="LblEnemigos"
+           style="-fx-text-fill: lightgreen;"/>
+
+    <TextArea fx:id="txTop"
+              editable="false"
+              prefHeight="200"
+              prefWidth="300"/>
+
+    <Button text="Volver a Jugar"
+            onAction="#volverAJugar"/>
+
+    <Button text="Salir"
+            onAction="#salir"/>
+</VBox>
