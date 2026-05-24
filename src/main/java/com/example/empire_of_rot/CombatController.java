@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import javafx.scene.control.ProgressBar;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,12 @@ public class CombatController {
     private TextArea txtCombate;
 
     @FXML
+    private ProgressBar barraJugador;
+
+    @FXML
+    private ProgressBar barraEnemigo;
+
+    @FXML
     public void initialize(){
         txtCombate.appendText("\nEL COMBATE COMIENZA\n");
     }
@@ -46,6 +53,7 @@ public class CombatController {
     public void atacar(){
         String resultado = jugador.atacar(enemigoActual);
         txtCombate.appendText(resultado + "\n");
+        actualizarBarras();
         actualizarDatos();
         verificarEstado();
     }
@@ -54,6 +62,7 @@ public class CombatController {
     public void habilidad() {
         String resultado = jugador.habilidadEspecial(enemigoActual);
         txtCombate.appendText(resultado + "\n");
+        actualizarBarras();
         actualizarDatos();
         verificarEstado();
     }
@@ -119,8 +128,10 @@ public class CombatController {
 
         if(action == 0){
             resultado = enemigoActual.atacar(jugador);
+            actualizarBarras();
         }else{
             resultado = enemigoActual.habilidadEspecial(jugador);
+            actualizarBarras();
         }
 
         txtCombate.appendText(resultado + "\n");
@@ -175,6 +186,11 @@ public class CombatController {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void actualizarBarras(){
+        barraJugador.setProgress(jugador.getVida()/150.0);
+        barraEnemigo.setProgress(enemigoActual.getVida()/150.0);
     }
 
 

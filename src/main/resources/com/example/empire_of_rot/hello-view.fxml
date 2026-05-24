@@ -11,7 +11,9 @@
       spacing="20"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.empire_of_rot.MainMenuController"
-      style="-fx-background-color: black;">
+      prefWidth="800"
+      prefHeight="600"
+      style="-fx-background-color: linear-gradient(to bottom, #111111,#2b0000);">
 
     <Label text="Empire Of Rot"
            style="-fx-font-size: 40px;
@@ -20,11 +22,15 @@
 
     <Button text="Jugar" onAction="#Jugar"
              style="-fx-font-size: 18px;
-                    -fx-background-color:darkred;
-                    -fx-text-fill: white;"/>
+                    -fx-text-fill: white;
+                    -fx-background-color: linear-gradient(to bottom, #850303,#7c2121);
+                   -fx-background-radius: 10;
+                   -fx-font-weight: bold;"/>
 
     <Button text="Salir" onAction="#salir"
             style="-fx-font-size: 18px;
-                    -fx-background-color:gray;
-                    -fx-text-fill: white;"/>
+                    -fx-text-fill: white;
+                    -fx-background-color: linear-gradient(to bottom, #3a0202,#8f2c2c);
+                   -fx-background-radius: 10;
+                   -fx-font-weight: bold;"/>
 </VBox>

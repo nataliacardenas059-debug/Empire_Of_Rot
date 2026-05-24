@@ -9,16 +9,19 @@
        xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="com.example.empire_of_rot.ResultController"
-       style="-fx-background-color: #1b1b1b;">
+       prefWidth="800"
+       prefHeight="600"
+       style="-fx-background-color: linear-gradient(to bottom, #111111,#2b0000);">
 
     <Label text="RESULTADO FINAL"
            style="-fx-font-size: 28px;
-                  -fx-text-fill: darkred;
+                  -fx-text-fill: #ba0030;
                   -fx-font-weight: bold;"/>
 
     <Label fx:id="LblResultado"
            style="-fx-font-size : 22px;
-                  -fx-text-fill: white;"/>
+                  -fx-text-fill: gold;
+                  -fx-font-weight: bold"/>
 
     <Label fx:id="LblJugador"
            style="-fx-text-fill: white;"/>
@@ -35,8 +38,16 @@
               prefWidth="300"/>
 
     <Button text="Volver a Jugar"
-            onAction="#volverAJugar"/>
+            onAction="#volverAJugar"
+            style="-fx-background-color: linear-gradient(to bottom, #8b0000,#3b0000);
+                   -fx-background-radius: 10;
+                    -fx-text-fill: white;
+                   -fx-font-weight: bold;"/>
 
     <Button text="Salir"
-            onAction="#salir"/>
+            onAction="#salir"
+            style="-fx-background-color: linear-gradient(to bottom, #e21717,#320b0b);
+                   -fx-background-radius: 10;
+                   -fx-text-fill: white;
+                   -fx-font-weight: bold;"/>
 </VBox>

@@ -1,0 +1,46 @@
+.root{
+    -fx-background-color:
+            linear-gradient(to bottom,#111111,#2b0000);
+}
+
+.button{
+    -fx-background-color:
+            linear-gradient(to bottom,#8b0000,#3b0000);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+.button:hover{
+    -fx-background-color: crimson;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-font-family: "Consolas";
+}
+
+.text-area{
+    -fx-control-inner-background: #1b1b1b;
+    -fx-text-fill: lime;
+    -fx-font-family: "Consolas";
+    -fx-font-size: 14px;
+}
+
+.combo-box{
+    -fx-background-color: #1b1b1b;
+    -fx-text-fill: white;
+}
+
+.text-field{
+    -fx-background-color: #1b1b1b;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: gray;
+}
+
+.progress-bar{
+    -fx-accent: darkred;
+}

@@ -36,9 +36,9 @@ public class ResultController {
         LblEnemigos.setText("Enemigos derrotados: " + enemigosDerrotados);
 
         if(victoria){
-            LblResultado.setText("VICTORIA");
+            LblResultado.setText("\uD83C\uDFC6 VICTORIA");
         }else{
-            LblResultado.setText("GAME OVER ");
+            LblResultado.setText("☠ GAME OVER ");
         }
         guardarTop(jugador);
 

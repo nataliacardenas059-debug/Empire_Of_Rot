@@ -9,7 +9,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.empire_of_rot.CombatController"
-            style="-fx-background-color: #1b1b1b;">
+            style="-fx-background-color: linear-gradient(to bottom, #111111,#2b0000);">
     <top>
         <VBox alignment="CENTER" spacing="10">
                 <Label text="EMPIRE OF ROT"
@@ -32,6 +32,11 @@
                            text="Vida: 100"
                            style="-fx-text-fill: lightgreen;"/>
 
+                    <Label text="Vida Jugador"
+                           style="-fx-text-fill: white"/>
+                    <ProgressBar fx:id="barraJugador"
+                                 prefWidth="250"/>
+
                     <Label fx:id="LblMunicion"
                            text="Munición: 0"
                            style="-fx-text-fill: orange;"/>
@@ -53,6 +58,11 @@
                     <Label fx:id="LblVidaEnemigo"
                            text="Vida: 100"
                            style="-fx-text-fill: red;"/>
+
+                    <Label text="Vida Enemigo"
+                           style="-fx-text-fill: white"/>
+                    <ProgressBar fx:id="barraEnemigo"
+                                 prefWidth="250"/>
                 </VBox>
             </HBox>
         </VBox>
@@ -73,16 +83,33 @@
                style="-fx-padding: 20;">
 
             <Button text="Atacar"
-                    onAction="#atacar"/>
+                    onAction="#atacar"
+                    style="-fx-background-color: linear-gradient(to bottom, #a3ff05,#6ced43);
+                   -fx-background-radius: 10;
+                   -fx-text-fill: Black;
+                   -fx-font-weight: bold;"/>
+
 
             <Button text="Habilidad Especial"
-                    onAction="#habilidad"/>
+                    onAction="#habilidad"
+                    style="-fx-background-color: linear-gradient(to bottom, #fdd667,#ffc401);
+                   -fx-background-radius: 10;
+                   -fx-text-fill: Black;
+                   -fx-font-weight: bold;"/>
 
             <Button text="Recargar arma"
-                    onAction="#recargar"/>
+                    onAction="#recargar"
+                    style="-fx-background-color: linear-gradient(to bottom, #0ef48e,#0e7046);
+                   -fx-background-radius: 10;
+                   -fx-text-fill: white;
+                   -fx-font-weight: bold;"/>
 
             <Button text="Huir"
-                    onAction="#huir"/>
+                    onAction="#huir"
+                    style="-fx-background-color: linear-gradient(to bottom, #e21717,#320b0b);
+                   -fx-background-radius: 10;
+                   -fx-text-fill: white;
+                   -fx-font-weight: bold;"/>
         </HBox>
     </bottom>
 </BorderPane>
