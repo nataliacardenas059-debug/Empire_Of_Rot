@@ -1,115 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Pos?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.empire_of_rot.CombatController"
+            stylesheets="@style.css"
             style="-fx-background-color: linear-gradient(to bottom, #111111,#2b0000);">
+
     <top>
         <VBox alignment="CENTER" spacing="10">
                 <Label text="EMPIRE OF ROT"
-                       style="-fx-font-size: 28px;
-                       -fx-text-fill: darkred;
-                       -fx-font-weight: bold;"/>
-
-            <HBox alignment="CENTER" spacing="40">
-                <VBox alignment="CENTER">
-
-                    <Label text="JUGADOR"
-                           style="-fx-text-fill: white;
-                                 -fx-font-size: 18px;"/>
-
-                    <Label fx:id="LblJugador"
-                           text="Jugador"
-                           style="-fx-text-fill: white;"/>
-
-                    <Label fx:id="LblVidaJugador"
-                           text="Vida: 100"
-                           style="-fx-text-fill: lightgreen;"/>
-
-                    <Label text="Vida Jugador"
-                           style="-fx-text-fill: white"/>
-                    <ProgressBar fx:id="barraJugador"
-                                 prefWidth="250"/>
-
-                    <Label fx:id="LblMunicion"
-                           text="Munición: 0"
-                           style="-fx-text-fill: orange;"/>
-
-                    <Label fx:id="LblPuntos"
-                           text="Puntos: 0"
-                           style="-fx-text-fill: gold;"/>
-                </VBox>
-                <VBox alignment="CENTER">
-
-                    <Label text="ENEMIGO"
-                           style="-fx-text-fill: white;
-                                  -fx-font-size: 18px"/>
-
-                    <Label fx:id="LblEnemigo"
-                           text="Zombie"
-                           style="-fx-text-fill: white;"/>
-
-                    <Label fx:id="LblVidaEnemigo"
-                           text="Vida: 100"
-                           style="-fx-text-fill: red;"/>
-
-                    <Label text="Vida Enemigo"
-                           style="-fx-text-fill: white"/>
-                    <ProgressBar fx:id="barraEnemigo"
-                                 prefWidth="250"/>
-                </VBox>
-            </HBox>
+                       styleClass="titulo"/>
+            <Separator/>
         </VBox>
     </top>
 
     <center>
-        <TextArea fx:id="txtCombate"
-                  editable="false"
-                  wrapText="true"
-                  style="-fx-control-inner-background: #2b2b2b;
-                        -fx-text-fill: white;
-                        -fx-font-size: 14px;"/>
+        <VBox alignment="CENTER" spacing="20">
+
+            <HBox alignment="CENTER" spacing="80">
+
+                    <VBox alignment="CENTER" spacing="8">
+                        <Label text="JUGADOR"
+                               styleClass="subtitulo"/>
+
+                        <Label fx:id="LblJugador"
+                               styleClass="label-info"/>
+
+                        <Label fx:id="LblVidaJugador"
+                               styleClass="label-vida"/>
+
+                        <ProgressBar fx:id="barraVidaJugador"
+                                     progress="1.0"
+                                     prefWidth="250"/>
+
+                        <Label fx:id="LblMunicion"
+                               styleClass="label-puntos"/>
+
+                        <Label fx:id="LblPuntos"
+                               styleClass="label-puntos"/>
+                    </VBox>
+
+                   <VBox alignment="CENTER" spacing="8">
+                       <Label text="ENEMIGO"
+                              styleClass="subtitulo"/>
+
+                       <Label fx:id="LblEnemigo"
+                              styleClass="label-info"/>
+
+                       <Label fx:id="LblVidaEnemigo"
+                              styleClass="label-vida"/>
+
+                       <ProgressBar fx:id="barraVidaEnemigo"
+                                    progress="1.0"
+                                    prefWidth="250"/>
+                   </VBox>
+            </HBox>
+            <TextArea fx:id="txtCombate"
+                      editable="false"
+                      wrapText="true"
+                      prefWidth="620"
+                      prefHeight="220"
+                      styleClass="area-combate"/>
+        </VBox>
     </center>
 
     <bottom>
         <HBox alignment="CENTER"
-               spacing="15"
+               spacing="20"
                style="-fx-padding: 20;">
 
             <Button text="Atacar"
                     onAction="#atacar"
-                    style="-fx-background-color: linear-gradient(to bottom, #a3ff05,#6ced43);
-                   -fx-background-radius: 10;
-                   -fx-text-fill: Black;
-                   -fx-font-weight: bold;"/>
+                    styleClass="boton-atacar"/>
 
 
             <Button text="Habilidad Especial"
                     onAction="#habilidad"
-                    style="-fx-background-color: linear-gradient(to bottom, #fdd667,#ffc401);
-                   -fx-background-radius: 10;
-                   -fx-text-fill: Black;
-                   -fx-font-weight: bold;"/>
+                    styleClass="boton-especial"/>
 
             <Button text="Recargar arma"
                     onAction="#recargar"
-                    style="-fx-background-color: linear-gradient(to bottom, #0ef48e,#0e7046);
-                   -fx-background-radius: 10;
-                   -fx-text-fill: white;
-                   -fx-font-weight: bold;"/>
+                    styleClass="boton-recargar"/>
 
             <Button text="Huir"
                     onAction="#huir"
-                    style="-fx-background-color: linear-gradient(to bottom, #e21717,#320b0b);
-                   -fx-background-radius: 10;
-                   -fx-text-fill: white;
-                   -fx-font-weight: bold;"/>
+                   styleClass="boton-salir"/>
         </HBox>
+
     </bottom>
+
 </BorderPane>

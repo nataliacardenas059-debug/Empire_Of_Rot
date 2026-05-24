@@ -39,10 +39,10 @@ public class CombatController {
     private TextArea txtCombate;
 
     @FXML
-    private ProgressBar barraJugador;
+    private ProgressBar barraVidaJugador;
 
     @FXML
-    private ProgressBar barraEnemigo;
+    private ProgressBar barraVidaEnemigo;
 
     @FXML
     public void initialize(){
@@ -94,7 +94,7 @@ public class CombatController {
 
         actualizarDatos();
 
-        txtCombate.appendText("\nHa aparecido un " +enemigoActual.getNombre() + "!\n");
+        txtCombate.appendText("\nHa aparecido un "+ enemigoActual.getNombre() + "!\n");
     }
 
     public void crearEnemigos(){
@@ -139,12 +139,12 @@ public class CombatController {
     }
 
     public void actualizarDatos(){
-        LblJugador.setText(jugador.getNombre());
+        LblJugador.setText(getEmojiJugador() + " " + jugador.getNombre());
         LblVidaJugador.setText("Vida: " + jugador.getVida());
         LblMunicion.setText("Munición: " + jugador.getArma().getMunicion());
         LblPuntos.setText("Puntos: "+ jugador.getPuntos());
 
-        LblEnemigo.setText(enemigoActual.getNombre());
+        LblEnemigo.setText(getEmojiEnemigo() + " " + enemigoActual.getNombre());
         LblVidaEnemigo.setText("Vida: " + enemigoActual.getVida());
 
     }
@@ -189,8 +189,42 @@ public class CombatController {
     }
 
     public void actualizarBarras(){
-        barraJugador.setProgress(jugador.getVida()/150.0);
-        barraEnemigo.setProgress(enemigoActual.getVida()/150.0);
+        barraVidaJugador.setProgress(jugador.getVida()/150.0);
+        barraVidaEnemigo.setProgress(enemigoActual.getVida()/150.0);
+    }
+
+    private String getEmojiJugador(){
+        if(jugador instanceof Arquero){
+            return "\uD83C\uDFF9";
+        }
+
+        if(jugador instanceof Soldado){
+            return "\uD83C\uDFF9";
+        }
+
+        if(jugador instanceof Cazador){
+            return "\uD83C\uDFF9";
+        }
+        return "\uD83C\uDFAE";
+    }
+
+    private String getEmojiEnemigo(){
+        if(enemigoActual instanceof Bestia){
+            return "\uD83D\uDC79";
+        }
+
+        if(enemigoActual instanceof Zombie){
+            return "\uD83E\uDDDF";
+        }
+
+        if(enemigoActual instanceof Mutante){
+            return "\uD83C\uDFF9";
+        }
+
+        if(enemigoActual instanceof Infectado){
+            return "☣\uFE0F";
+        }
+        return "\uD83D\uDC80";
     }
 
 

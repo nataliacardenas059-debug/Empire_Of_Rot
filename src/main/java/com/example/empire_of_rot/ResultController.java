@@ -28,7 +28,19 @@ public class ResultController {
     private Label LblEnemigos;
 
     @FXML
-    private TextArea txTop;
+    private Label lblTop1;
+
+    @FXML
+    private Label lblTop2;
+
+    @FXML
+    private Label lblTop3;
+
+    @FXML
+    private Label lblTop4;
+
+    @FXML
+    private Label lblTop5;
 
     public void setDatos(Combatiente jugador, int enemigosDerrotados, boolean victoria){
         LblJugador.setText("Jugador: " + jugador.getNombre());
@@ -86,21 +98,32 @@ public class ResultController {
         }
     }
 
-    public void mostrarTop(){
-        txTop.clear();
-        try{
+    public void mostrarTop() {
+        try {
             BufferedReader reader = new BufferedReader(new FileReader("Top5.txt"));
+            String[] tops = new String[5];
             String linea;
-            int posicion = 1;
+            int i = 0;
 
-            while((linea = reader.readLine()) != null){
-                txTop.appendText(posicion + ". " + linea + "\n");
-                posicion++;
+            while ((linea = reader.readLine()) != null && i < 5) {
+                tops[i] = linea;
+                i++;
             }
             reader.close();
 
-        }catch( IOException e){
-            txTop.setText("No existe top.");
+            lblTop1.setText(i > 0 ? tops[0] : "---");
+            lblTop1.setText(i > 1 ? tops[1] : "---");
+            lblTop1.setText(i > 2 ? tops[2] : "---");
+            lblTop1.setText(i > 3 ? tops[3] : "---");
+            lblTop1.setText(i > 4 ? tops[4] : "---");
+
+        } catch (IOException e) {
+            lblTop1.setText("---");
+            lblTop2.setText("---");
+            lblTop3.setText("---");
+            lblTop4.setText("---");
+            lblTop5.setText("---");
+
         }
     }
 

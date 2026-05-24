@@ -13,6 +13,7 @@
       fx:controller="com.example.empire_of_rot.MainMenuController"
       prefWidth="800"
       prefHeight="600"
+      stylesheets="@style.css"
       style="-fx-background-color: linear-gradient(to bottom, #111111,#2b0000);">
 
     <Label text="Empire Of Rot"
@@ -20,10 +21,31 @@
                   -fx-text-fill: darkred;
                   -fx-font-weight: bold;"/>
 
-    <TextArea fx:id="txtTop"
-              editable="false"
-              prefHeight="150"
-              prefWidth="300"/>
+    <VBox alignment="CENTER" spacing="5" prefWidth="250"
+          style="-fx-background-color: rgba(0,0,0,0.5);
+                 -fx-padding: 15;
+                 -fx-background-radius: 10;">
+
+        <Label text="🏆 TOP 5"
+               style="-fx-text-fill: gold;
+                      -fx-font-size: 22px;
+                      -fx-font-weight: bold;"/>
+
+        <Label fx:id = "lblTop1"
+               styleClass="label-info"/>
+
+        <Label fx:id = "lblTop2"
+               styleClass="label-info"/>
+
+        <Label fx:id = "lblTop3"
+               styleClass="label-info"/>
+
+        <Label fx:id = "lblTop4"
+               styleClass="label-info"/>
+
+        <Label fx:id = "lblTop5"
+               styleClass="label-info"/>
+    </VBox>
 
     <Button text="Jugar"
             onAction="#Jugar"
