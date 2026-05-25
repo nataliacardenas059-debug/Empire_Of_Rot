@@ -55,12 +55,21 @@ public class CombatController {
         txtCombate.appendText(resultado + "\n");
         actualizarBarras();
         actualizarDatos();
+
         if(resultado.toLowerCase().contains("sin munición")){
             turnoEnemigo();
-            verificarEstado();
+            if(!jugador.tieneVida()){
+                finalizarPartida(false);
+            }
             return;
         }
         verificarEstado();
+        if(enemigoActual.tieneVida() && jugador.tieneVida()){
+            turnoEnemigo();
+            if(!jugador.tieneVida()){
+                finalizarPartida(false);
+            }
+        }
     }
 
     @FXML
@@ -72,10 +81,19 @@ public class CombatController {
 
         if(resultado.toLowerCase().contains("sin munición")){
             turnoEnemigo();
-            verificarEstado();
+            if(!jugador.tieneVida()){
+                finalizarPartida(false);
+            }
             return;
         }
+
         verificarEstado();
+        if(enemigoActual.tieneVida() && jugador.tieneVida()){
+            turnoEnemigo();
+            if(!jugador.tieneVida()){
+                finalizarPartida(false);
+            }
+        }
     }
 
     @FXML
