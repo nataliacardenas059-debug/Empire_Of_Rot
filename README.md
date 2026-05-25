@@ -114,17 +114,24 @@ Launcher.java
 
 ## Pantalla principal
 
+<img width="1215" height="675" alt="image" src="https://github.com/user-attachments/assets/1a542c5b-fa59-403a-8315-e2d4b0029da8" />
 
+<img width="994" height="663" alt="image" src="https://github.com/user-attachments/assets/25b71e9c-4ba9-41b8-8241-2a7350d413c8" />
 
 ---
 
 ## Sistema de combate
+<img width="850" height="571" alt="image" src="https://github.com/user-attachments/assets/ab00de15-db28-44a7-abcb-25e49f06d6f4" />
 
+<img width="753" height="588" alt="image" src="https://github.com/user-attachments/assets/bcd0acb0-4c99-4abe-a3a3-cc26b3211484" />
+<img width="828" height="632" alt="image" src="https://github.com/user-attachments/assets/a624b2cd-8f44-4918-ada2-5da88017350e" />
+<img width="903" height="610" alt="image" src="https://github.com/user-attachments/assets/b5828722-71c4-4262-bbbb-6d0524e46f8e" />
 
 ---
 
-## Ranking Top 5
+## Pantalla de resultado
 
+<img width="969" height="669" alt="image" src="https://github.com/user-attachments/assets/c9dedb79-628c-4c98-af97-7878d1727252" />
 
 ---
 
